@@ -1,3 +1,5 @@
+import './Input.style.scss';
+
 const Input = () => {
   return (
     <div>

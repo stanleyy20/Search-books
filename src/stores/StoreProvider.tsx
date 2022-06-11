@@ -49,7 +49,6 @@ const StoreProvider = ({ children }: StoreProps) => {
           .then((data) => {
             setTitle(inputValue);
             setError(false);
-            // setInputValue('');
             setData(data.results);
             setTotalCount(data.count);
             setNextPage(data.next);

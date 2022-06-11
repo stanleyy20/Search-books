@@ -8,13 +8,13 @@ const LoadingIndicator = () => {
       <div
         style={{
           position: 'absolute',
-          marginTop: '20px',
+          marginTop: '30px',
           width: '100%',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <TailSpin color='#00BFFF' height={40} width={40} />
+        <TailSpin color='#64ffda' height={40} width={40} />
       </div>
     );
   else return null;
