@@ -1,4 +1,5 @@
 import React, { createContext, useState, Dispatch, SetStateAction, SyntheticEvent } from 'react';
+import { trackPromise } from 'react-promise-tracker';
 
 export interface StoreProps {
   children: React.ReactNode;
@@ -36,27 +37,29 @@ const StoreProvider = ({ children }: StoreProps) => {
       alert('Wpisz tytuł książki');
       return;
     } else {
-      await fetch(url)
-        .then((response) => {
-          if (response.ok) {
-            return response;
-          }
-          throw Error('Nie udało się wczytać danych');
-        })
-        .then((response) => response.json())
-        .then((data) => {
-          setTitle(inputValue);
-          setError(false);
-          // setInputValue('');
-          setData(data.results);
-          setTotalCount(data.count);
-          setNextPage(data.next);
-          setPreviousPage(data.previous);
-        })
-        .catch((error) => {
-          console.log(error);
-          setError(true);
-        });
+      await trackPromise(
+        fetch(url)
+          .then((response) => {
+            if (response.ok) {
+              return response;
+            }
+            throw Error('Nie udało się wczytać danych');
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            setTitle(inputValue);
+            setError(false);
+            // setInputValue('');
+            setData(data.results);
+            setTotalCount(data.count);
+            setNextPage(data.next);
+            setPreviousPage(data.previous);
+          })
+          .catch((error) => {
+            console.log(error);
+            setError(true);
+          })
+      );
     }
   };
 
