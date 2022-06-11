@@ -17,6 +17,8 @@ export interface Data {
   goToNextPage: (e: SyntheticEvent) => void;
   goToPreviousPage: (e: SyntheticEvent) => void;
   setInputValue: Dispatch<SetStateAction<string>>;
+  languages: string;
+  setLanguages: Dispatch<SetStateAction<string>>;
 }
 
 export const StoreContext = createContext<Data | null>(null);
@@ -29,8 +31,9 @@ const StoreProvider = ({ children }: StoreProps) => {
   const [title, setTitle] = useState('');
   const [nextPage, setNextPage] = useState('');
   const [previousPage, setPreviousPage] = useState('');
+  const [languages, setLanguages] = useState('');
 
-  const API = `https://gnikdroy.pythonanywhere.com/api/book/?format=json&search=${inputValue}`;
+  const API = `https://gnikdroy.pythonanywhere.com/api/book/?format=json&search=${inputValue}&languages=${languages}`;
 
   const booksApi = async (url: string) => {
     if (inputValue === '') {
@@ -53,6 +56,7 @@ const StoreProvider = ({ children }: StoreProps) => {
             setTotalCount(data.count);
             setNextPage(data.next);
             setPreviousPage(data.previous);
+            setLanguages('');
           })
           .catch((error) => {
             console.log(error);
@@ -93,6 +97,8 @@ const StoreProvider = ({ children }: StoreProps) => {
         goToNextPage,
         setInputValue,
         goToPreviousPage,
+        languages,
+        setLanguages,
       }}>
       {children}
     </StoreContext.Provider>
