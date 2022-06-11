@@ -3,12 +3,13 @@ import { Data } from '../../stores/StoreProvider';
 import { useContext } from 'react';
 import { StoreContext } from '../../stores/StoreProvider';
 
+import Input from './subcomponent/Input';
+import Button from './subcomponent/Button';
+
 import './result.style.css';
 
 const Result: React.FC = () => {
   const { data, totalCount, title, goToNextPage, goToPreviousPage } = useContext(StoreContext) as Data;
-
-  let mainContent: JSX.Element;
 
   let bookUrlAdres = data.map((data: any) => {
     return data.resources.map((resource: any) => {
@@ -32,16 +33,18 @@ const Result: React.FC = () => {
         <details>
           <summary>{data.title}</summary>
           {data.subjects}
-          <br />
-          <button onClick={() => handleOnClick(bookUrlAdres[index])}>Czytaj</button>
-          <input type='checkbox' id='important' />
-          <label htmlFor='important'>Dodaj do ulubionych</label>
+          <Button text='Read' onClick={() => handleOnClick(bookUrlAdres[index])} />
+          <Input />
         </details>
       </li>
     );
   });
 
-  const textInfo: JSX.Element = <p>Nie znaleziono ksiażki o tytule {title}</p>;
+  let textInfo: JSX.Element | null = <p>Nie znaleziono ksiażki o tytule {title}</p>;
+
+  if (totalCount === null) {
+    textInfo = null;
+  }
 
   const pageButton = (
     <div>
@@ -50,15 +53,9 @@ const Result: React.FC = () => {
     </div>
   );
 
-  if (totalCount !== 0) {
-    mainContent = bookList;
-  } else {
-    mainContent = textInfo;
-  }
-
   return (
     <div className='result'>
-      <ul>{totalCount ? mainContent : null}</ul>
+      <ul>{totalCount ? bookList : textInfo}</ul>
       {totalCount ? pageButton : null}
     </div>
   );
