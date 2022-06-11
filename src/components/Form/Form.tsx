@@ -1,6 +1,6 @@
 import { ChangeEvent, useContext } from 'react';
 
-import { Data } from '../../stores/StoreProvider';
+import { Data } from '../../types/types';
 
 import { StoreContext } from '../../stores/StoreProvider';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';

@@ -1,4 +1,4 @@
-import { Data } from '../../stores/StoreProvider';
+import { Data } from '../../types/types';
 
 import { useContext } from 'react';
 import { StoreContext } from '../../stores/StoreProvider';

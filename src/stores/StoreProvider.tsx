@@ -1,24 +1,10 @@
-import React, { createContext, useState, Dispatch, SetStateAction, SyntheticEvent } from 'react';
+import React, { createContext, useState, SyntheticEvent } from 'react';
 import { trackPromise } from 'react-promise-tracker';
+
+import { Data } from '../types/types';
 
 export interface StoreProps {
   children: React.ReactNode;
-}
-
-export interface Data {
-  inputValue: string;
-  error: boolean;
-  data: any;
-  totalCount: number | null;
-  title: string;
-  nextPage: string | null;
-  previousPage: string | null;
-  getBooks: (e: SyntheticEvent) => void;
-  goToNextPage: (e: SyntheticEvent) => void;
-  goToPreviousPage: (e: SyntheticEvent) => void;
-  setInputValue: Dispatch<SetStateAction<string>>;
-  languages: string;
-  setLanguages: Dispatch<SetStateAction<string>>;
 }
 
 export const StoreContext = createContext<Data | null>(null);
@@ -86,7 +72,6 @@ const StoreProvider = ({ children }: StoreProps) => {
   return (
     <StoreContext.Provider
       value={{
-        inputValue,
         error,
         data,
         totalCount,
@@ -99,6 +84,7 @@ const StoreProvider = ({ children }: StoreProps) => {
         goToPreviousPage,
         languages,
         setLanguages,
+        inputValue,
       }}>
       {children}
     </StoreContext.Provider>
