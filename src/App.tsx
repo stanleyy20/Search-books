@@ -9,7 +9,7 @@ import TitlePage from './components/TitlePage/TitlePage';
 function App() {
   return (
     <StoreProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path='/' element={<TitlePage />} />
           <Route
