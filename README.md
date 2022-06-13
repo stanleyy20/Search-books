@@ -10,4 +10,6 @@ npm start
 
 # Description
 
+My first app in TypeScript
+
 Search your favorite books. App using API https://gnikdroy.pythonanywhere.com/api/
