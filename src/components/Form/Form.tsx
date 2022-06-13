@@ -1,9 +1,10 @@
 import { ChangeEvent, useContext } from 'react';
 
-import { Data } from '../../types/types';
-
 import { StoreContext } from '../../stores/StoreProvider';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
+
+import { Data } from '../../types/types';
+import language from '../../helpers/language';
 
 import './Form.style.scss';
 
@@ -18,29 +19,6 @@ const Form = () => {
     setLanguages(e.target.value);
   };
 
-  const options = [
-    {
-      label: 'All',
-      value: '',
-    },
-    {
-      label: 'French',
-      value: 'fr',
-    },
-    {
-      label: 'Polish',
-      value: 'pl',
-    },
-    {
-      label: 'English',
-      value: 'en',
-    },
-    {
-      label: 'Spanish',
-      value: 'es',
-    },
-  ];
-
   const placeholderText = `Book's title`;
 
   return (
@@ -52,7 +30,7 @@ const Form = () => {
         Choose languages:
       </label>
       <select className='select-language' name='language' id='language-select' onChange={handleOnSelect}>
-        {options.map((option) => (
+        {language.map((option) => (
           <option value={option.value}>{option.label}</option>
         ))}
       </select>
