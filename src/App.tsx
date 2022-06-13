@@ -8,7 +8,6 @@ function App() {
   return (
     <StoreProvider>
       <div className='app-container'>
-        <h2 className='main-title'>Search your favorite books</h2>
         <Form />
         <Result />
       </div>

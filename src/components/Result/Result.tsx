@@ -39,14 +39,14 @@ const Result: React.FC = () => {
           <p className='description'>Description: {data.subjects}</p>
           {/* <p className='description'>Description: {data.description}</p> */}
           <Input />
-          <Button text='Read' onClick={() => handleOnClick(bookUrlAdres[index])} />
+          <Button text='read on' onClick={() => handleOnClick(bookUrlAdres[index])} />
           <p className='last'>Language: {data.languages} </p>
         </details>
       </li>
     );
   });
 
-  let textInfo: JSX.Element | null = <p className='no-result'>Nie znaleziono ksiażki o tytule {title}</p>;
+  let textInfo: JSX.Element | null = <p className='no-result'>The book with the title {title} was not found</p>;
 
   if (totalCount === null) {
     textInfo = null;

@@ -4,7 +4,7 @@ const Input = () => {
   return (
     <div>
       <input type='checkbox' id='important' />
-      <label htmlFor='important'>Dodaj do ulubionych</label>
+      <label htmlFor='important'>add to favorites</label>
     </div>
   );
 };
