@@ -1,17 +1,24 @@
-import { useContext, SyntheticEvent, ChangeEvent } from 'react';
+import { useContext, SyntheticEvent, ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../stores/StoreProvider';
 
 import { Data } from '../../types/types';
-import language from '../../helpers/language';
+// import language from '../../helpers/language';
+// setLanguages;
 
 import './TitlePage.style.scss';
 
 const placeholderText = `Book's title`;
 
 const TitlePage = () => {
-  const { getBooks, setInputValue, inputValue, setLanguages } = useContext(StoreContext) as Data;
+  const { getBooks, setInputValue, inputValue } = useContext(StoreContext) as Data;
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const changeVisibility = (e: SyntheticEvent) => {
+    e.preventDefault();
+    setIsVisible((prev) => !prev);
+  };
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -31,9 +38,12 @@ const TitlePage = () => {
     getBooks(e);
   };
 
+  const optionsMenu = isVisible ? <div className='options-container'>in progres..</div> : null;
+  const showHide = isVisible ? 'hide' : 'show';
+
   return (
     <div className='title-page'>
-      <form className='form-main' action=''>
+      <form className='form-main'>
         <h1>Search your favorite books</h1>
         <input
           className='input-main'
@@ -45,7 +55,12 @@ const TitlePage = () => {
         <button className='btn-main' onClick={handleOnClick}>
           Search
         </button>
+        <br />
+        <p className='more-options' onClick={changeVisibility}>
+          {showHide} more options
+        </p>
       </form>
+      {optionsMenu}
     </div>
   );
 };

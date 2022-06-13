@@ -6,6 +6,7 @@
   height: 100vh;
 
   .form-main {
+    text-align: center;
     position: absolute;
     left: 50%;
     top: 40%;
@@ -23,7 +24,7 @@
     border: 2px solid variables.$border-color;
     color: variables.$text-color;
     padding: 5px 10px;
-    font-size: 20px;
+    font-size: 21px;
     border-radius: 5px;
     width: 400px;
   }
@@ -35,12 +36,30 @@
 
   .input-main::placeholder {
     color: variables.$text-color;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 100;
   }
   h1 {
     color: white;
     margin-bottom: 50px;
     font-size: 58px;
+  }
+
+  .more-options {
+    display: inline-block;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: 4s;
+  }
+  .more-options:hover {
+    text-decoration: underline;
+  }
+  .options-container {
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
   }
 }
