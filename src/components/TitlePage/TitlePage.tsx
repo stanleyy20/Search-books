@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../stores/StoreProvider';
 
 import { Data } from '../../types/types';
-// import language from '../../helpers/language';
-// setLanguages;
+import OptionsMenu from './subcomponent/OptionsMenu';
 
 import './TitlePage.style.scss';
 
@@ -24,10 +23,6 @@ const TitlePage = () => {
     setInputValue(e.target.value);
   };
 
-  //   const handleOnSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-  //     setLanguages(e.target.value);
-  //   };
-
   const changePage = () => {
     if (!inputValue) return;
     navigate('/main');
@@ -38,8 +33,13 @@ const TitlePage = () => {
     getBooks(e);
   };
 
-  const optionsMenu = isVisible ? <div className='options-container'>in progres..</div> : null;
   const showHide = isVisible ? 'hide' : 'show';
+
+  const optionsMenu = isVisible ? (
+    <div className='options-container'>
+      <OptionsMenu />
+    </div>
+  ) : null;
 
   return (
     <div className='title-page'>
