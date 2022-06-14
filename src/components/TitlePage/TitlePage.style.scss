@@ -17,6 +17,22 @@
 
   .btn-main {
     width: 200px;
+
+    @media (max-width: 600px) {
+      width: 80%;
+    }
+  }
+
+  .btn-main:active {
+    border: 2px solid variables.$red;
+    background-color: variables.$red;
+  }
+
+  .btn-main:hover {
+    @media (min-width: 1025px) {
+      border: 2px solid variables.$red;
+      background-color: variables.$red;
+    }
   }
 
   .input-main {
@@ -27,6 +43,11 @@
     font-size: 21px;
     border-radius: 5px;
     width: 400px;
+
+    @media (max-width: 600px) {
+      width: 80%;
+      margin: 0;
+    }
   }
 
   .input-main:focus {
@@ -43,6 +64,10 @@
     color: white;
     margin-bottom: 50px;
     font-size: 58px;
+
+    @media (max-width: 600px) {
+      font-size: 40px;
+    }
   }
 
   .more-options {
@@ -50,11 +75,22 @@
     font-size: 24px;
     color: white;
     cursor: pointer;
-    transition: 4s;
+
+    @media (max-width: 600px) {
+      margin-top: 10px;
+    }
   }
-  .more-options:hover {
+
+  .more-options:active {
     text-decoration: underline;
   }
+
+  .more-options:hover {
+    @media (min-width: 1025px) {
+      text-decoration: underline;
+    }
+  }
+
   .options-container {
     position: absolute;
     color: white;
