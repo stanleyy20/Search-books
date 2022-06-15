@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../stores/StoreProvider';
 
 import { Data } from '../../types/types';
-import OptionsMenu from './subcomponent/OptionsMenu';
+import OptionsMenu from '../OptionsMenu/OptionsMenu';
 
 import './TitlePage.style.scss';
 

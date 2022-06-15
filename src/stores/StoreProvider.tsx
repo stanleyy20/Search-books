@@ -18,8 +18,10 @@ const StoreProvider = ({ children }: StoreProps) => {
   const [nextPage, setNextPage] = useState('');
   const [previousPage, setPreviousPage] = useState('');
   const [languages, setLanguages] = useState('');
+  const [bookAuthor, setBookAuthor] = useState('');
+  const [bookDescription, setBookDescription] = useState('');
 
-  const API = `https://gnikdroy.pythonanywhere.com/api/book/?format=json&search=${inputValue}&languages=${languages}`;
+  const API = `https://gnikdroy.pythonanywhere.com/api/book/?format=json&search=${inputValue}&languages=${languages}&agent_name_contains=${bookAuthor}&description_contains=${bookDescription}`;
 
   const booksApi = async (url: string) => {
     if (inputValue === '') {
@@ -85,6 +87,10 @@ const StoreProvider = ({ children }: StoreProps) => {
         languages,
         setLanguages,
         inputValue,
+        bookAuthor,
+        setBookAuthor,
+        bookDescription,
+        setBookDescription,
       }}>
       {children}
     </StoreContext.Provider>

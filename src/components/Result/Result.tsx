@@ -36,8 +36,8 @@ const Result: React.FC = () => {
           <summary>
             <h3 className='title'>{data.title}</h3>
           </summary>
-          <p className='description'>Description: {data.subjects}</p>
-          {/* <p className='description'>Description: {data.description}</p> */}
+          <p className='description'>Subjects: {data.subjects}</p>
+          <p className='description'>Description: {data.description ? data.description : 'none'}</p>
           <Input />
           <Button text='read on' onClick={() => handleOnClick(bookUrlAdres[index])} />
           <p className='last'>Language: {data.languages} </p>

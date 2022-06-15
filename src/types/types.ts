@@ -14,4 +14,8 @@ export interface Data {
   setInputValue: Dispatch<SetStateAction<string>>;
   languages: string;
   setLanguages: Dispatch<SetStateAction<string>>;
+  bookAuthor: string;
+  setBookAuthor: Dispatch<SetStateAction<string>>;
+  bookDescription: string;
+  setBookDescription: Dispatch<SetStateAction<string>>;
 }

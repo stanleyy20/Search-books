@@ -2,7 +2,7 @@ import { ChangeEvent, useContext } from 'react';
 
 import { StoreContext } from '../../stores/StoreProvider';
 import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
-import OptionsMenu from '../TitlePage/subcomponent/OptionsMenu';
+import OptionsMenu from '../OptionsMenu/OptionsMenu';
 
 import { Data } from '../../types/types';
 

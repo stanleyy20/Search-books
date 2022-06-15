@@ -95,7 +95,42 @@
     position: absolute;
     color: white;
     left: 50%;
-    top: 60%;
+    top: 70%;
     transform: translate(-50%, -50%);
+  }
+
+  .label-language {
+    color: #9da19d;
+    margin-left: 0;
+  }
+
+  .author {
+    display: block;
+    color: #9da19d;
+    margin-left: 0;
+  }
+
+  .author-input {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    color: #9da19d;
+    margin-left: 0;
+  }
+
+  .description-input {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .select-language {
+    display: block;
+    width: 60px;
+    height: 20px;
+    margin-bottom: 10px;
   }
 }
